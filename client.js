@@ -1,10 +1,10 @@
-// var socket = require('socket.io-client')('https://socket-nodejs-test.herokuapp.com/', {
-//     query: {user: process.argv[2]}
-// });
-
-var socket = require('socket.io-client')('http://localhost:3000', {
+var socket = require('socket.io-client')('https://socket-nodejs-test.herokuapp.com/', {
     query: {user: process.argv[2]}
 });
+
+// var socket = require('socket.io-client')('http://localhost:3000', {
+//     query: {user: process.argv[2]}
+// });
 
 socket.on('connect', function(){console.log("Connected")});
 socket.on('page', function(data){

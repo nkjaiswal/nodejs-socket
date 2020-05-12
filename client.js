@@ -16,7 +16,8 @@ console.log(process.argv[2]);
 
 function ping() {
     setTimeout(function(){ 
-        socket.emit("ping");
+        console.log("Pinged");
+        socket.emit('ping',{});
         ping();
     }, 3000);
 }

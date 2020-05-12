@@ -14,9 +14,9 @@ var client = {};
 io.on("connection", socket => {
     console.log("Connected to user: "+socket.handshake.query.user);
     socket.on("delete_message", function(delete_id){
-        console.log("Deleted Message " + delete_id.id);
+        console.log("Deleted Message " + delete_id);
     });
-    socket.on('ping', function(){
+    socket.on('ping', function(data){
         console.log("Ping received for " + socket.handshake.query.user);
         socket.emit('pong',{});
     });

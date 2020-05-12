@@ -13,3 +13,11 @@ socket.on(process.argv[2], function(data){
 });
 socket.on('disconnect', function(){console.log("Disconnected")});
 console.log(process.argv[2]);
+
+function ping() {
+    setTimeout(function(){ 
+        socket.emit("ping");
+        ping();
+    }, 3000);
+}
+ping();

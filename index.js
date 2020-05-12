@@ -12,6 +12,11 @@ const io = require("socket.io")(server);
 var client = {};
 
 io.on("connection", socket => {
+    console.log("Request received from " + socket.handshake.query.user);
+    if(socket.handshake.query.user == "ERROR") {
+        socket.disconnect();
+        return;
+    }
     console.log("Connected to user: "+socket.handshake.query.user);
     socket.on("delete_message", function(delete_id){
         console.log("Deleted Message " + delete_id);

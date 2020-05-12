@@ -16,9 +16,9 @@ io.on("connection", socket => {
     socket.on("delete_message", function(delete_id){
         console.log("Deleted Message " + delete_id);
     });
-    socket.on('ping', function(data){
+    socket.on('ping_me', function(data){
         console.log("Ping received for " + socket.handshake.query.user);
-        socket.emit('pong',{});
+        socket.emit('pong_me',{});
     });
     socket.on('disconnect', function(){console.log("Disconnected " + socket.handshake.query.user)});
 });

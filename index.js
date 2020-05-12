@@ -18,7 +18,7 @@ io.on("connection", socket => {
     });
     socket.on('ping_me', function(data){
         console.log("Ping received for " + socket.handshake.query.user);
-        socket.emit('pong_me',{});
+        socket.emit('pong_me',socket.handshake.query.user);
     });
     socket.on('disconnect', function(){console.log("Disconnected " + socket.handshake.query.user)});
 });

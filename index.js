@@ -16,4 +16,5 @@ io.on("connection", socket => {
     socket.on("delete_message", function(delete_id){
         console.log("Deleted Message " + delete_id.id);
     });
+    socket.on('disconnect', function(){console.log("Disconnected " + socket.handshake.query.user)});
 });
